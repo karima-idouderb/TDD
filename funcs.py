@@ -9,6 +9,7 @@ def est_premier(nb):
     # Fonction qui retourne True si le nombre 'nb' est premier, sinon False.
     if nb <= 1:
         return False
-    if (nb % nb != 0) and (nb % 1 != 0):
-        return False
+    for i in range(2, nb):
+        if nb % i == 0:
+            return False
     return True
