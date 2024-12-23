@@ -8,6 +8,16 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.trois_grde_val([7, 7, 7]), [7, 7, 7])
         self.assertEqual(funcs.trois_grde_val([150, 800]), [800, 150])
         self.assertEqual(funcs.trois_grde_val([]), [])
+    
+    def test_est_premier(self):
+        self.assertEqual(funcs.est_premier(2), True)
+        self.assertEqual(funcs.est_premier(7), True)
+        self.assertEqual(funcs.est_premier(8), False)
+        self.assertEqual(funcs.est_premier(23), True)
+        self.assertEqual(funcs.est_premier(1), False)
+        self.assertEqual(funcs.est_premier(0), False)
+        self.assertEqual(funcs.est_premier(-7), False)
+
 
 if __name__ == '__main__':
     unittest.main()

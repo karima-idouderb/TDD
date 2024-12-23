@@ -4,3 +4,6 @@ def trois_grde_val(liste):
     if len(liste) < 3:
         return sorted(liste, reverse=True)
     return sorted(liste, reverse=True)[:3]
+
+def est_premier(nb):
+    pass
