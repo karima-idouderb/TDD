@@ -6,4 +6,9 @@ def trois_grde_val(liste):
     return sorted(liste, reverse=True)[:3]
 
 def est_premier(nb):
-    pass
+    # Fonction qui retourne True si le nombre 'nb' est premier, sinon False.
+    if nb <= 1:
+        return False
+    if (nb % nb != 0) and (nb % 1 != 0):
+        return False
+    return True

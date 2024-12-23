@@ -16,7 +16,7 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.est_premier(23), True)
         self.assertEqual(funcs.est_premier(1), False)
         self.assertEqual(funcs.est_premier(0), False)
-        self.assertEqual(funcs.est_premier(-7), False)
+        self.assertEqual(funcs.est_premier(-5), False)
 
 
 if __name__ == '__main__':
