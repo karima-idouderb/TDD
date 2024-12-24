@@ -20,3 +20,4 @@ def est_suite_arith(liste):
     # Fonction qui renvoie si la liste représente ou pas une suite arithmétique.
     if len(liste) < 2:
         return True
+    diff = liste[1] - liste[0]
