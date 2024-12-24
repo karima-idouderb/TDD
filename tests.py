@@ -27,7 +27,7 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.est_suite_arith([]), True)
         self.assertEqual(funcs.est_suite_arith([10, 5, 0, -5]), True)
         self.assertEqual(funcs.est_suite_arith([1.0, 1.3, 2.1]), False)
-        self.assertEqual(funcs.est_suite_arith([1, 2.5, 4]), False)
+        self.assertEqual(funcs.est_suite_arith([1, 2.5, 6]), False)
 
 
 if __name__ == '__main__':

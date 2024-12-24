@@ -22,6 +22,6 @@ def est_suite_arith(liste, epsilon=1e-9):
         return True
     diff = liste[1] - liste[0]
     for i in range(1, len(liste) - 1):
-        if liste[i + 1] - liste[i] != diff:
-            return False 
+        if abs(liste[i + 1] - liste[i] - diff) > epsilon:
+            return False
     return True
