@@ -16,11 +16,12 @@ def est_premier(nb):
             return False
     return True
 
-def est_suite_arith(liste):
+def est_suite_arith(liste, epsilon=1e-9):
     # Fonction qui renvoie si la liste représente ou pas une suite arithmétique.
     if len(liste) < 2:
         return True
     diff = liste[1] - liste[0]
-    if len(liste) > 2 and liste[2] - liste[1] != diff:
-        return False 
+    for i in range(1, len(liste) - 1):
+        if liste[i + 1] - liste[i] != diff:
+            return False 
     return True
