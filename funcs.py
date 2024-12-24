@@ -21,3 +21,6 @@ def est_suite_arith(liste):
     if len(liste) < 2:
         return True
     diff = liste[1] - liste[0]
+    if len(liste) > 2 and liste[2] - liste[1] != diff:
+        return False 
+    return True
