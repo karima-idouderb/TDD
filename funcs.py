@@ -15,3 +15,7 @@ def est_premier(nb):
         if nb % i == 0:
             return False
     return True
+
+def est_suite_arith(liste):
+    # Fonction qui renvoie si la liste représente ou pas une suite arithmétique.
+    pass
