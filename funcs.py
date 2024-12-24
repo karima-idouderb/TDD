@@ -18,4 +18,5 @@ def est_premier(nb):
 
 def est_suite_arith(liste):
     # Fonction qui renvoie si la liste représente ou pas une suite arithmétique.
-    pass
+    if len(liste) < 2:
+        return True
