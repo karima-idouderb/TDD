@@ -25,3 +25,7 @@ def est_suite_arith(liste, epsilon=1e-9):
         if abs(liste[i + 1] - liste[i] - diff) > epsilon:
             return False
     return True
+
+def fifo(action, val=None, etat={"queue": []}):
+    # Fonction pour simuler une file FIFO
+    pass

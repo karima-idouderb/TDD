@@ -29,6 +29,20 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.est_suite_arith([1.0, 1.3, 2.1]), False)
         self.assertEqual(funcs.est_suite_arith([1, 2.5, 6]), False)
 
+    def test_fifo_initialization(self):
+        etat = {"queue": []}
+        self.assertEqual(etat["queue"], [])
+    
+    def test_fifo_enqueue(self):    
+        funcs.fifo("enqueue", 10, etat)  
+        self.assertEqual(etat["queue"], [10])
+
+    def test_fifo_dequeue(self):
+        self.assertEqual(funcs.fifo("dequeue", etat=etat), 10)
+        self.assertEqual(funcs.fifo("taille", etat=etat), 1)
+        funcs.fifo("dequeue", etat=etat)
+        self.assertEqual(funcs.fifo("taille", etat=etat), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
