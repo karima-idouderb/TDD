@@ -37,5 +37,6 @@ def fifo(action, val=None, etat={"queue": []}):
         if len(etat["queue"]) == 0:
             return etat["queue"].pop(0)
     
-    
+    elif action == "taille":
+        return len(etat["queue"])
     
