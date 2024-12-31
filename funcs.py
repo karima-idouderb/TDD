@@ -27,5 +27,8 @@ def est_suite_arith(liste, epsilon=1e-9):
     return True
 
 def fifo(action, val=None, etat={"queue": []}):
-    # Fonction pour simuler une file FIFO
-    pass
+    if action == "enqueue":
+        if val is None:
+            raise ValueError("A value must be provided for 'enqueue'")
+        etat["queue"].append(val)
+        return None

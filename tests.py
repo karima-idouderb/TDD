@@ -30,18 +30,29 @@ class TestFuncs(unittest.TestCase):
         self.assertEqual(funcs.est_suite_arith([1, 2.5, 6]), False)
 
     def test_fifo_initialization(self):
-        etat = {"queue": []}
-        self.assertEqual(etat["queue"], [])
+        self.etat = {"queue": []}
+        self.assertEqual(funcs.fifo("taille", etat=self.etat), 0)
+        self.assertEqual(self.etat["queue"], [])
     
-    def test_fifo_enqueue(self):    
-        funcs.fifo("enqueue", 10, etat)  
-        self.assertEqual(etat["queue"], [10])
+    def test_fifo_enqueue(self):
+        self.etat = {"queue": []}    
+        funcs.fifo("enqueue", 10, self.etat)
+        self.assertEqual(self.etat["queue"], [10])
 
     def test_fifo_dequeue(self):
-        self.assertEqual(funcs.fifo("dequeue", etat=etat), 10)
-        self.assertEqual(funcs.fifo("taille", etat=etat), 1)
-        funcs.fifo("dequeue", etat=etat)
-        self.assertEqual(funcs.fifo("taille", etat=etat), 0)
+        self.etat = {"queue": []}
+        funcs.fifo("enqueue", 10, self.etat)
+        funcs.fifo("enqueue", 20, self.etat)
+
+        self.assertEqual(funcs.fifo("dequeue", etat=self.etat), 10)
+        self.assertEqual(funcs.fifo("taille", etat=self.etat), 1)
+        self.assertEqual(funcs.fifo("dequeue", etat=self.etat), 20)
+        self.assertEqual(funcs.fifo("taille", etat=self.etat), 0)
+    
+    def test_fifo_est_vide(self):
+        self.etat = {"queue": []}
+        with self.assertRaises(IndexError):
+            funcs.fifo("dequeue", etat=self.etat)
 
 
 if __name__ == '__main__':
