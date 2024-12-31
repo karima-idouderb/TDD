@@ -35,7 +35,8 @@ def fifo(action, val=None, etat={"queue": []}):
 
     elif action == "dequeue":
         if len(etat["queue"]) == 0:
-            return etat["queue"].pop(0)
+            raise IndexError("FIFO is empty")
+        return etat["queue"].pop(0) 
     
     elif action == "taille":
         return len(etat["queue"])
