@@ -40,3 +40,5 @@ def fifo(action, val=None, etat={"queue": []}):
     elif action == "taille":
         return len(etat["queue"])
     
+    else:
+        raise ValueError(f"Unknown action {action}")
