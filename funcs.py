@@ -32,3 +32,10 @@ def fifo(action, val=None, etat={"queue": []}):
             raise ValueError("A value must be provided for 'enqueue'")
         etat["queue"].append(val)
         return None
+
+    elif action == "dequeue":
+        if len(etat["queue"]) == 0:
+            return etat["queue"].pop(0)
+    
+    
+    
