@@ -43,3 +43,6 @@ def fifo(action, val=None, etat={"queue": []}):
     
     else:
         raise ValueError(f"Unknown action {action}")
+
+def lifo(action, val=None, etat={"stack": []}):
+    pass

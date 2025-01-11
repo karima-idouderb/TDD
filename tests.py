@@ -1,4 +1,5 @@
 import funcs
+from funcs import lifo
 import unittest
 
 class TestFuncs(unittest.TestCase):
@@ -53,6 +54,39 @@ class TestFuncs(unittest.TestCase):
         self.etat = {"queue": []}
         with self.assertRaises(IndexError):
             funcs.fifo("dequeue", etat=self.etat)
+
+    def test_lifo_push(self):
+        etat = {"stack": []}
+        lifo("push", 10, etat)
+        self.assertEqual(etat["stack"], [10])
+        lifo("push", 20, etat)
+        self.assertEqual(etat["stack"], [10, 20])
+
+    def test_lifo_pop(self):
+        etat = {"stack": []}
+        lifo("push", 10, etat)
+        lifo("push", 20, etat)
+        self.assertEqual(lifo("pop", etat=etat), 20)
+        self.assertEqual(etat["stack"], [10])
+        self.assertEqual(lifo("pop", etat=etat), 10)
+        self.assertEqual(etat["stack"], [])
+        with self.assertRaises(IndexError):
+            lifo("pop", etat=etat)
+
+    def test_lifo_taille(self):
+        etat = {"stack": []}
+        self.assertEqual(lifo("taille", etat=etat), 0)
+        lifo("push", 10, etat)
+        self.assertEqual(lifo("taille", etat=etat), 1)
+        lifo("push", 20, etat)
+        self.assertEqual(lifo("taille", etat=etat), 2)
+        lifo("pop", etat=etat)
+        self.assertEqual(lifo("taille", etat=etat), 1)
+
+    def test_lifo_invalid_action(self):
+        etat = {"stack": []}
+        with self.assertRaises(ValueError):
+            lifo("unknown_action", etat=etat)
 
 
 if __name__ == '__main__':
