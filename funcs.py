@@ -45,4 +45,12 @@ def fifo(action, val=None, etat={"queue": []}):
         raise ValueError(f"Unknown action {action}")
 
 def lifo(action, val=None, etat={"stack": []}):
-    pass
+    if action == "push":
+        etat["stack"].append(val)
+        return None
+
+    elif action == "pop":
+        return etat["stack"].pop()
+
+    elif action == "taille":
+        return len(etat["stack"])
