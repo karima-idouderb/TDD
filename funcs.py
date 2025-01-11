@@ -46,11 +46,18 @@ def fifo(action, val=None, etat={"queue": []}):
 
 def lifo(action, val=None, etat={"stack": []}):
     if action == "push":
+        if val is None:
+            raise ValueError("A value must be provided for 'push'")
         etat["stack"].append(val)
         return None
 
     elif action == "pop":
+        if len(etat["stack"]) == 0:
+            raise IndexError("LIFO is empty")
         return etat["stack"].pop()
 
     elif action == "taille":
         return len(etat["stack"])
+
+    else:
+        raise ValueError(f"Unknown action '{action}'")
